@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 
-export default function SideMenuLinks({ data = [], component }) {
+export default function SideMenu({ data = [], component }) {
   const Component = component;
   return data.map((data) => {
     const { title, slug } = data.attributes;
