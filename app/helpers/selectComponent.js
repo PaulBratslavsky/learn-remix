@@ -1,6 +1,6 @@
 import Markdown from '~/components/Markdown';
 import Code from '~/components/Code';
-
+import Image from '~/components/Image';
 export function selelctComponent(components) {
   return components.map((component, index) => {
     const type = component.__component;
@@ -13,7 +13,7 @@ export function selelctComponent(components) {
         return <Markdown key={index} content={component.content} />
 
       case "my-components.image":
-        return <h1 key={index}>will be image component</h1>
+        return <Image key={index} data={component}/>
 
       case "my-components.code":
         return <Code key={index} data={component} />

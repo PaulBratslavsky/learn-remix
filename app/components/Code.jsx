@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Prism from "prismjs";
 
 export default function Code({ data }) {
@@ -11,7 +11,7 @@ export default function Code({ data }) {
     <div className="my-6">
       <h2 className="my-6 text-slate-800 text-2xl">{data.name}</h2>
 
-      { data.src && <div className="badge badge-secondary badge-lg mb-3">`{data.src}`</div>
+      { data.src && <div className="badge badge-secondary badge-lg mb-3">{data.src}</div>
 }
       <div className="mockup-code">
         <pre className="p-6">

@@ -23,11 +23,11 @@ export default function Post({ data }) {
         />
       </div>
       <div className="p-4">
-        <h1 className="lg:text-3xl text-2xl font-semibold mb-6 text-primary">
+        <h1 className="lg:text-4xl text-2xl font-semibold mb-6 text-primary">
           {title}
         </h1>
 
-        <div className="relative flex items-center space-x-3 my-4 pb-4 border-b border-gray-100">
+        <div className="relative flex items-center space-x-3 my-4 border-b border-gray-100">
           {authorImageUrl && (
             <img
               src={authorImageUrl}
@@ -39,19 +39,17 @@ export default function Post({ data }) {
           <div>
             <div className="text-info font-semibold">{authorName}</div>
             <div className="text-xs">
-              {" "}
-              Published on {formatDate(publishedAt)}{" "}
+              Published on {formatDate(publishedAt)}
+            </div>
+            <div className="text-xs">
+              Description: {description}
             </div>
           </div>
 
           {/* <ButtonLink className="absolute right-1" to="add-event">Recommend Event</ButtonLink> */}
         </div>
 
-        <div className="my-3 p-3">
-          <p>{description}</p>
-        </div>
-
-        <div className="my-3 p-3">
+        <div className="p-3">
           {Components && selelctComponent(Components)}
         </div>
       </div>

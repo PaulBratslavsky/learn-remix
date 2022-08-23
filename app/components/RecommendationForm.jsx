@@ -1,14 +1,16 @@
 import { Form } from "@remix-run/react";
 import Input from "~/components/Input";
 export default function RecommendationForm({ transition }) {
+  const loading = transition.state === "loading" || transition.state === "submitting" 
   return (
     <Form
       className="bg-base-100 rounded-xl px-8 pt-6 pb-8 mb-4"
       method="post"
       encType="multipart/form-data"
     >
-      <fieldset disabled={transition.status === "loading"}>
-        {/* <h1>{transition.state}</h1> */}
+      <fieldset disabled={loading}>
+        
+        <h1>{transition.state}</h1>
 
         <Input
           id="title"
@@ -56,7 +58,7 @@ export default function RecommendationForm({ transition }) {
             name="action"
             value="update"
           >
-            {transition.status === "loading" ? "Submiting..." : "Submit"}
+            {loading ? "Submitting..." : "submiting"}
           </button>
         </div>
       </fieldset>
