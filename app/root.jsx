@@ -8,7 +8,7 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
-import TopNav from "~/components/TopNav";
+
 import { getEnv } from "../env.server";
 import styles from "./styles/app.css"
 
@@ -37,14 +37,13 @@ export function links() {
 export default function App() {
   const data = useLoaderData()
   return (
-    <html lang="en" data-theme="cupcake" className="bg-base-300">
+    <html lang="en" data-theme="cupcake" className="bg-base-300 h-full">
       <head>
         <Meta />
         <Links />
       </head>
 
-      <body>
-        <TopNav />
+      <body className="h-full">
         <Outlet />
         <ScrollRestoration />
 
