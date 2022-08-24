@@ -1,4 +1,3 @@
-// import { Markdown } from "./Markdown";
 
 import { formatDate, getImageThumbnail, selelctComponent } from "~/helpers";
 
@@ -27,7 +26,7 @@ export default function Post({ data }) {
           {title}
         </h1>
 
-        <div className="relative flex items-center space-x-3 my-4 border-b border-gray-100">
+        <div className="relative flex items-center space-x-3 py-4 border-b border-base-200">
           {authorImageUrl && (
             <img
               src={authorImageUrl}
@@ -46,7 +45,6 @@ export default function Post({ data }) {
             </div>
           </div>
 
-          {/* <ButtonLink className="absolute right-1" to="add-event">Recommend Event</ButtonLink> */}
         </div>
 
         <div className="p-3">

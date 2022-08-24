@@ -9,8 +9,6 @@ export default function RecommendationForm({ transition }) {
       encType="multipart/form-data"
     >
       <fieldset disabled={loading}>
-        
-        <h1>{transition.state}</h1>
 
         <Input
           id="title"
