@@ -1,25 +1,25 @@
 
 import { formatDate, getImageThumbnail, selelctComponent } from "~/helpers";
+import {Cloudinary} from "@cloudinary/url-gen";
+import {AdvancedImage, responsive} from '@cloudinary/react';
+
+ // Create and configure your Cloudinary instance.
+ const cld = new Cloudinary({
+  cloud: { cloudName: 'dq2cllwgp' }
+}); 
 
 export default function Post({ data }) {
   const { title, featuredImage, description, publishedAt, author, Components } =
     data.attributes;
-
   const { firstName, lastName, avatar } = author.data.attributes;
-
   const authorName = `${firstName} ${lastName}`;
-
   const authorImageUrl = getImageThumbnail(avatar);
-  const featuredImageUrl = featuredImage.data.attributes.url;
-
+  const myImage = cld.image(featuredImage.data.attributes.provider_metadata.public_id);
+  
   return (
     <div className="card bg-base-100">
       <div className="h-44 mb-4 md:h-72 overflow-hidden relative rounded-t-lg w-full">
-        <img
-          src={featuredImageUrl}
-          alt={title}
-          className="w-full h-full absolute inset-0 object-cover"
-        />
+          <AdvancedImage  className="w-full h-full absolute inset-0 object-cover" cldImg={myImage} plugins={[responsive({steps: 200})]}/>
       </div>
       <div className="p-4">
         <h1 className="lg:text-4xl text-2xl font-semibold mb-6 text-primary">
