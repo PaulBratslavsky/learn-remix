@@ -1,7 +1,6 @@
 import { formatDate, getImageThumbnail, selelctComponent } from "~/helpers";
 import { cld } from "~/helpers/cloudinary";
 import { AdvancedImage, responsive, placeholder } from "@cloudinary/react";
-
 export default function Post({ data }) {
   const { title, featuredImage, description, publishedAt, author, Components } =
     data.attributes;
@@ -19,6 +18,9 @@ export default function Post({ data }) {
           className="w-full h-full absolute inset-0 object-cover"
           cldImg={myImage}
           plugins={[responsive(), placeholder()]}
+          width="100%"
+          height="100%"
+          alt="No alt text was provided"
         />
       </div>
       <div className="p-4">
