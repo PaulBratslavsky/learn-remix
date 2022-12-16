@@ -1,6 +1,9 @@
 import { cld } from "~/helpers/cloudinary";
-import {AdvancedImage, responsive, placeholder} from '@cloudinary/react';
-
+import {
+  AdvancedImage,
+  responsive,
+  placeholder,
+} from "@cloudinary/react";
 export default function Image({ data }) {
   const {
     title,
@@ -16,7 +19,7 @@ export default function Image({ data }) {
   const myImage = cld.image(image.data.attributes.provider_metadata.public_id);
 
   console.log(myImage, "myImage");
-// TODO: FIX PASSING SHOWTITLE AND SHOWDESCRIPTION FROM STRAPI
+  // TODO: FIX PASSING SHOWTITLE AND SHOWDESCRIPTION FROM STRAPI
   return (
     <div className="my-6">
       {title && showTitle && <h2 className="text-2xl mb-3">Title: {title}</h2>}
@@ -30,9 +33,14 @@ export default function Image({ data }) {
         //   width={width}
         // />
         // <AdvancedImage  className="rounded-xl" cldImg={myImage} plugins={[responsive({steps: 200})]}/>
-        <AdvancedImage className="w-full h-full rounded-xl"
-        cldImg={myImage} plugins={[responsive(), placeholder()]} />
-
+        <AdvancedImage
+          className="w-full h-full rounded-xl"
+          cldImg={myImage}
+          plugins={[responsive(), placeholder()]}
+          width={width}
+          height={height}
+          alt={alt || "No alt text was provided"}
+        />
       )}
 
       {description && showDescription && (
