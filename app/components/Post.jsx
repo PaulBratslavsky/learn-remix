@@ -20,7 +20,7 @@ export default function Post({ data }) {
           plugins={[responsive(), placeholder()]}
           width="100%"
           height="100%"
-          alt="No alt text was provided"
+          alt="No alt text was provided"g
         />
       </div>
       <div className="p-4">
