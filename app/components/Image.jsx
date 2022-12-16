@@ -1,12 +1,5 @@
-import {Cloudinary} from "@cloudinary/url-gen";
-import {AdvancedImage, responsive} from '@cloudinary/react';
-
- // Create and configure your Cloudinary instance.
- const cld = new Cloudinary({
-  cloud: { cloudName: 'dq2cllwgp' }
-}); 
-
-
+import { cld } from "~/helpers/cloudinary";
+import {AdvancedImage, responsive, placeholder} from '@cloudinary/react';
 
 export default function Image({ data }) {
   const {
@@ -36,7 +29,9 @@ export default function Image({ data }) {
         //   height={height}
         //   width={width}
         // />
-        <AdvancedImage  className="rounded-xl" cldImg={myImage} plugins={[responsive({steps: 200})]}/>
+        // <AdvancedImage  className="rounded-xl" cldImg={myImage} plugins={[responsive({steps: 200})]}/>
+        <AdvancedImage className="w-full h-full rounded-xl"
+        cldImg={myImage} plugins={[responsive(), placeholder()]} />
 
       )}
 

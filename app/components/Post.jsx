@@ -1,12 +1,6 @@
-
 import { formatDate, getImageThumbnail, selelctComponent } from "~/helpers";
-import {Cloudinary} from "@cloudinary/url-gen";
-import {AdvancedImage, responsive} from '@cloudinary/react';
-
- // Create and configure your Cloudinary instance.
- const cld = new Cloudinary({
-  cloud: { cloudName: 'dq2cllwgp' }
-}); 
+import { cld } from "~/helpers/cloudinary";
+import { AdvancedImage, responsive, placeholder } from "@cloudinary/react";
 
 export default function Post({ data }) {
   const { title, featuredImage, description, publishedAt, author, Components } =
@@ -14,12 +8,18 @@ export default function Post({ data }) {
   const { firstName, lastName, avatar } = author.data.attributes;
   const authorName = `${firstName} ${lastName}`;
   const authorImageUrl = getImageThumbnail(avatar);
-  const myImage = cld.image(featuredImage.data.attributes.provider_metadata.public_id);
-  
+  const myImage = cld.image(
+    featuredImage.data.attributes.provider_metadata.public_id
+  );
+
   return (
     <div className="card bg-base-100">
       <div className="h-44 mb-4 md:h-72 overflow-hidden relative rounded-t-lg w-full">
-          <AdvancedImage  className="w-full h-full absolute inset-0 object-cover" cldImg={myImage} plugins={[responsive({steps: 200})]}/>
+        <AdvancedImage
+          className="w-full h-full absolute inset-0 object-cover"
+          cldImg={myImage}
+          plugins={[responsive(), placeholder()]}
+        />
       </div>
       <div className="p-4">
         <h1 className="lg:text-4xl text-2xl font-semibold mb-6 text-primary">
@@ -40,16 +40,11 @@ export default function Post({ data }) {
             <div className="text-xs">
               Published on {formatDate(publishedAt)}
             </div>
-            <div className="text-xs">
-              Description: {description}
-            </div>
+            <div className="text-xs">Description: {description}</div>
           </div>
-
         </div>
 
-        <div className="p-3">
-          {Components && selelctComponent(Components)}
-        </div>
+        <div className="p-3">{Components && selelctComponent(Components)}</div>
       </div>
     </div>
   );
