@@ -72,7 +72,7 @@ export default function PostLayout({ menu, menuComponent, children, data }) {
                         className="text-2xl text-primary hover:text-secondary font-bold"
                         to="/"
                       >
-                        Remix Fun
+                        Code In Public
                       </Link>
                     </div>
                     <nav className="mt-5 px-2 space-y-1">
@@ -113,7 +113,7 @@ export default function PostLayout({ menu, menuComponent, children, data }) {
                   className="text-3xl text-primary hover:text-secondary font-bold"
                   to="/"
                 >
-                  Remix Fun
+                  Code In Public
                 </Link>
               </div>
               <nav className="mt-5 flex-1 px-2 bg-base-200 space-y-1">

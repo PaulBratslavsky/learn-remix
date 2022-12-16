@@ -4,8 +4,8 @@ export default function () {
   return (
     <HeroText
       full
-      title="Hello Remix"
-      text="Join me on my journey of learning Remix and using it with my favorite CMS | Strapi."
+      title="Hello World"
+      text="Join me on my journey of learning to code using my favorite frameworks."
       cta="Read Something Cool"
       to="posts"
     />
