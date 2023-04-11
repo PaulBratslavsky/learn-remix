@@ -1,11 +1,7 @@
 const qs = require('qs');
 
 const params = (slug) => qs.stringify({
-  filter: {
-    where: {
-      slug: slug
-    }
-  },
+  filters: { slug: slug },
 });
 
 export async function getShortPostBySlug(slug) {

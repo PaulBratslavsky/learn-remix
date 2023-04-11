@@ -6,8 +6,11 @@ import HeroText from "~/components/HeroText";
 
 export async function loader({ params }) {
   const slug = params.slug;
+  console.log(`slug`, slug)
   const response = await getShortPostBySlug(slug);
   const data = await response.json();
+
+  console.log(`data`, data)
 
   if (!data.data[0]?.attributes.slug) throw json("Not Found", { status: 404 });
   else return data;
